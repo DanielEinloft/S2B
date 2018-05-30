@@ -1,14 +1,21 @@
+/*
+Author: Daniel Centeno Einloft.
+Last Modification:29/05/2018
+Students to Business Program - Web Development 
+*/
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Game = Schema(
     {
      title: {type: String, required: true, max: 50},
-     situation: {type: String, required: true, enum: ['Available', 'On Hold'], default: 'Available'},
-     store: {type: Schema.ObjectId, ref: 'Store'},
-     user: {type: Schema.ObjectId, ref: 'User'},
+     situation: {type: String, enum: ['Available', 'On Hold'], default: 'Available'},
+     storeId: {type: Schema.ObjectId, ref: 'Store', required: true},
+     UserHolding: {type: Schema.ObjectId, ref: 'User', default: undefined},
      price: {type: Number, required: true},
-     holdTime: {type: Date, default: Date.now}
+     holdTime: {type: Date, default: Date.now},
+     units:{type: Number, default: 1}
     }
 );
 
@@ -17,33 +24,27 @@ const Store = Schema(
         storeName: {type: String, required: true, max: 100},
         address: {type: String, required: true, max: 100},
         CEP: {type: Number, required: true},
-        games: [{type: Schema.ObjectId, ref: 'Game'}] 
+        games: [{type: Schema.ObjectId, ref: 'Game'}],
+        userStore: {type: Schema.ObjectId, ref: 'UserStore', required: true}
     }
 );
 const User = Schema(
     {
         name: {type: String, required: true, max: 20},
-        lastName: {type: String, required: true, max: 30},
-        CPF: {type: Number, required: true, max: 9999999999},
         email: {type: String, required: true, max: 30},
         password: {type: String, required: true, min: 8, max: 16},
         address: { type: String, required: true, max: 50},
-        creditCardNumber: {type: String, max:16, default: null},
-        creditCardSecurityCode: {type: String, max:3, default: null},
         games: [{type: Schema.ObjectId, ref: 'Game'}] 
     }
 );
 
 const UserStore = Schema(
     {
-        storeName: {type: String, required: true, max: 100},
-        managerName: {type: String, required: true, max: 50},
-        CPF: {type: Number, required: true,max: 9999999999},
+        name: {type: String, required: true, max: 50},
         email: {type: String, required: true, max: 30},
         password: {type: String, required: true, min: 8, max: 16},
         address: { type: String, required: true, max: 50},
-        creditCardNumber: {type: String, max:16, default: null},
-        StoreID: {type: Schema.ObjectId, ref: 'Store', required: true}
+        StoreID: [{type: Schema.ObjectId, ref: 'Store'}]
     }
 );
 

@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+
+
+#Author: Daniel Centeno Einloft.
+#Last Modification:26/05/2018
+#Students to Business Program - Web Development 
+
+
 #execution: python file.py > outputfile.json
 import re
 
