@@ -1,0 +1,94 @@
+
+
+/*=========================== layout ============================*/
+html, body, .capa /*utiliza o html também pq o body tá dentro do html. o body, por default, já ta dentor do html. Então precisa colocar o html também pra ficar a tela toda*/
+{
+	height: 100%;
+}
+
+body
+{
+	background: url('imagens/siteWallpaper.jpg'); /*composicao de backgrounds*/
+	background-attachment: fixed;/*deixa o background parado. Sem isso ele fica repetindo */
+	overflow-x: hidden; /*remover a barra de navegação na horizontal*/ 
+}
+
+
+.img-logo
+{
+	height: 55px;
+	width: 55px;
+	display: block;
+	background: url('imagens/icon.svg') no-repeat;
+	/*border: 1px solid red;*/
+	background-size:contain; /*define que a imagem de fundotem o mesmo tamanho definido por height e width*/ 
+	color: transparent;
+}
+nav.navbar-transparent
+{
+	padding: 15px 0px;
+	background: rgba(0,0,0,0.6);
+	border: none;
+}
+
+.navbar-brand
+{
+	padding: 5px 15px;
+}
+
+.divisor
+{
+	width: 1px;
+	height: 16px;
+	background: white;
+	margin: 16px 10px;
+}
+
+.searchMenu
+{
+	border: 10px solid red;
+}
+
+.userInput
+{
+	position: relative; 
+	left: -10px;
+}
+
+
+
+.bloco
+{
+
+    padding: 25px 0px 25px 0px; 
+	margin-top: 100px;
+	display: table; 
+
+}
+.sub-bloco
+{
+	background: grey;
+}
+
+.image-prop
+{
+	width:  200px;
+	height: 200px;
+	margin: 10px;
+}
+
+.capa
+{
+	border:1px solid red;
+	display: table; /* truque pra centralizar...*/
+	width: 100%;
+}
+
+/*----- rodape --------*/
+footer
+{
+	background: #000;
+	padding: 50px 0px 20px 0px;
+	position: relative; /*Fica em cima da imagem :O*/
+}
+
