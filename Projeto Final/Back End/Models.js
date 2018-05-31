@@ -1,9 +1,3 @@
-/*
-Author: Daniel Centeno Einloft.
-Last Modification:29/05/2018
-Students to Business Program - Web Development 
-*/
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

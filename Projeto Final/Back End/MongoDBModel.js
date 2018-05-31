@@ -1,6 +1,6 @@
 /*
 Author: Daniel Centeno Einloft.
-Last Modification:29/05/2018
+Date:27/05/2018
 Students to Business Program - Web Development 
 */
 
@@ -12,7 +12,7 @@ const fs = require('fs')
 
 //Data Bank 
 const Mongoose =  require('mongoose');
-const {Game, Store, User,UserStore, DBStores} = require('./schemas');
+const {Game, Store, User,UserStore, DBStores} = require('./Models');
 
 //const url = 'mongodb://localhost:27017';
 
@@ -71,8 +71,8 @@ exports.DBModel =
 	FindStoreById : function(searchString) {return Store.findOne({_id: searchString});},
 	FindUserById : function(searchString) {return User.findOne({_id: searchString});},
 	FindUserStoreById : function(searchString) {return UserStore.findOne({_id: searchString});},
-	FindGamesFromStore: function (searchString){return Game.find().where('store').equals(searchString).exec();},	
-	FindGamesFromUser: function (searchString){return Game.find().where('user').equals(searchString).exec();},	
+	FindGamesFromStore: function (searchString){return Game.find().where('storeId').equals(searchString).exec();},	
+	FindGamesFromUser: function (searchString){return Game.find().where('UserHolding').equals(searchString).exec();},	
 
 
 	FindUserByEmail : function(searchString) {return User.findOne({email: searchString});},

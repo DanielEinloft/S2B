@@ -1,14 +1,8 @@
-/*
-Author: Daniel Centeno Einloft.
-Last Modification:29/05/2018
-Students to Business Program - Web Development 
-*/
-
-const {DBModel} = require('./DBModel');
+const {DBModel} = require('./MongoDBModel');
 
 //Data Bank 
 const Mongoose =  require('mongoose');
-const {Game, Store, User,UserStore, DBStores} = require('./schemas');
+const {Game, Store, User,UserStore, DBStores} = require('./Models');
 
 const url = 'mongodb://localhost:27017';
 const urlSite = `${url}/SiteData`;
@@ -17,7 +11,7 @@ const urlDataPoa = `${url}/Datapoa`;
 
 
 //return await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.OPERACAO,INPUT);
-let DBController = 
+let DBService = 
 {
 
 	async CreateUser(newUser)
@@ -154,9 +148,6 @@ let DBController =
 
 
 
-
-
-
 	//more straightforward operations.
 	//update
 
@@ -174,10 +165,22 @@ let DBController =
 	async FindStoreByName(searchString){return await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindStoreByName,searchString);},
 
 	async ListStoreGames(storeId)
-	{
-		if(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindStoreById,storeId))
+	{	
+		if(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindStoreById,storeId)== undefined)
 			return 7;
 		return await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGamesFromStore, storeId);
+
+	},
+
+	async UserLogIn(searchString,userPassword)
+	{
+		let user = await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindUserByEmail,searchString);
+		if(user == undefined)
+			return 9; //email doesnt exist
+		if(user.password != userPassword)
+			return 10;
+
+		return user;
 
 	},
 
@@ -240,18 +243,19 @@ let DBController =
 
 
 	//-----------------------------OPERACOES--------------------------------
-	//console.log(await DBController.CreateUser(myUser));
-	//console.log(await DBController.CreateUserStore(myUserStore));
-	console.log(await DBController.CreateStore(myStore));
-	//console.log(await DBController.CreateGame(myGame));
-	//console.log(await DBController.LetGoGame('5b0ddb31f6d2cf1d2d086d41','5b0e03f29dba55277e2ac7e6'));
-	//console.log(await DBController.RemoveGame('5b0e03f29dba55277e2ac7e6'));
+	//console.log(await DBService.CreateUser(myUser));
+	//console.log(await DBService.CreateUserStore(myUserStore));
+	//console.log(await DBService.CreateStore(myStore));
+	//console.log(await DBService.CreateGame(myGame));
+	//console.log(await DBService.LetGoGame('5b0ddb31f6d2cf1d2d086d41','5b0e03f29dba55277e2ac7e6'));
+	//console.log(await DBService.RemoveGame('5b0e03f29dba55277e2ac7e6'));
 
 
 	//DATAPOA
-	//console.log(await DBController.CheckDataPoaName('MEGAMIDIA INFORMATICA LTDA'));
-	//console.log(await DBController.CheckDataPoaCEP('90810080'));
+	//console.log(await DBService.CheckDataPoaName('MEGAMIDIA INFORMATICA LTDA'));
+	//console.log(await DBService.CheckDataPoaCEP('90810080'));
 
+	console.log(await DBService.ListStoreGames('5b0e047172285227ffea0e07'))
 })();
 
 
