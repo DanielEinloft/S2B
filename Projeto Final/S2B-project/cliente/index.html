@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="iGames">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular Demo 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-controller="iGamesController as controller">
+    <h1>Lista de Pessoas ({{controller.stores.length}})</h1>
+    
+    <input ng-model="controller.searchString">
+    <button ng-click="controller.FindGames()">Enviar</button>
+
+    <ul>
+        <li ng-repeat="store in controller.gameList">{{store}}</li>
+    </ul>
+
+
+        <script src="./iGamesController.js"></script>
+        <script src="./iGamesService.js"></script>
+
+</body>
+</html>

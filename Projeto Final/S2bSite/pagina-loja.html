@@ -1,0 +1,73 @@
+    <article>
+            <section class="container">
+              <div class="row bloco-cadastro ">
+      
+               
+                  <form style= "background: grey; ">
+                      <h1>Página da Loja {{store.storeName}}</h1>
+                  
+                      <label for="storeName">Nome</label><br>
+                      <input type="text" name="storeName" placeholder='{{store.storeName}}'/><br/><br/>
+
+                      <label for="userEmail">Email</label><br>
+                      <input type="email" name="userEmail" placeholder='{{user.email}}' /><br/><br/>
+      
+                      <label for="userAddress">Endereço</label><br>
+                      <input type="text" name="userAddress" placeholder='{{user.address}}' /><br/><br/>
+
+                      <label for="CEP">CEP</label><br>
+                      <input type="text" name="CEP" placeholder='{{user.CEP}}' /><br/><br/>
+    
+                      <label for="submitButton"></label><br>
+                      <input type="submit" name="submitButton" value = "Atualizar" /><br/>
+
+                      <label for="addGame"></label><br>
+                      <input type="button" name="addGame" value = "Adicionar Jogos" /><br/><br/>
+                  </form>
+                
+              </div>
+            </section>
+
+            
+            <section class="container lista" style="background: rgb(48, 47, 47)">
+                    <h2 style="color:white">Lista de Jogos</h2>
+                    <dl>
+                        <!--Jogo 1 ... -->
+                        <dd class="row">
+                                <form class="form-list">
+                                        <input type="button" name="removeGame" value = "Remover Jogo" /><br/><br/>
+                                        <input type="button" name="UpdateGame" value = "Atualizar Jogo" />
+                                </form>
+                            <img src="imagens/icon.svg" class="list-picture">
+                            <div style= "background: grey; ">
+                                <h3> Nome do Jogo: {{game.title}}}}</h3>
+                                <b> Preço:</b> {{game.price}}<br/>
+                                <b> Loja:</b> {{store.storeName}}<br/>
+                                <b> Endereço:</b> {{store.address}}<br/>
+                                <b> CEP:</b> {{store.CEP}}<br/>
+                            </div>
+                        </dd>
+    
+                        <!--Jogo 2... -->
+                        <dd class="row ">
+                                <form class="form-list">
+                                        <input type="button" name="removeGame" value = "Remover Jogo" /><br/><br/>
+                                        <input type="button" name="UpdateGame" value = "Atualizar Jogo" />
+                                </form>
+                                <img src="imagens/icon.svg" class="list-picture">
+                            <div style= "background: grey; ">
+                                <h3>Nome do Jogo: {{game.title}}}}</h3>
+                                <b>Preço:</b> {{game.price}}<br/>
+                                <b>Loja:</b> {{store.storeName}}<br/>
+                                <b>Endereço:</b> {{store.address}}<br/>
+                                <b>CEP:</b> {{store.CEP}}<br/>
+                            </div>
+                        </dd>
+    
+                        <!-- Jogo n...-->
+    
+                    </dl>
+                </section>
+
+                
+          </article>--> 
