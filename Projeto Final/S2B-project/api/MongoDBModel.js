@@ -32,7 +32,6 @@ exports.DBModel =
 			let outstream = new Stream();
 			let rl = Readline.createInterface(instream,outstream);
 		
-	
 			rl.on('line', async function(line)
 			{
 				let buff = new DBStores(JSON.parse(line));

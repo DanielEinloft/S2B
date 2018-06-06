@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5b1711f9c90e800360169b6c"},"StoreID":[],"name":"julio","email":"julio@gmail.com","password":"123","address":"rua 1","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5b171211c90e800360169b6d"},"StoreID":[{"$oid":"5b1713e4f2a27a18e0060936"},{"$oid":"5b1714abf2a27a18e0060939"}],"name":"dbserver","email":"dbserver@gmail.com","password":"123","address":"rua 1","__v":{"$numberInt":"0"}}

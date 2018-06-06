@@ -6,6 +6,7 @@ const jsonParser = bodyParser.json();
 
 
 
+router.get('/create', Operations.CreateDB); //create DB
 
 //GET operations
 router.get('/stores', Operations.ListStores); //LIST ALL STORES

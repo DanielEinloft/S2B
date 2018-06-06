@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5b1713e4f2a27a18e0060936"},"games":[{"$oid":"5b17145df2a27a18e0060937"},{"$oid":"5b171468f2a27a18e0060938"}],"storeName":"MEGAMIDIA INFORMATICA LTDA","address":"xyz3243XXX","CEP":{"$numberInt":"90810080"},"userStore":{"$oid":"5b171211c90e800360169b6d"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5b1714abf2a27a18e0060939"},"games":[{"$oid":"5b1714f0f2a27a18e006093a"}],"storeName":"MEGAMIDIA INFORMATICA LTDA","address":"xyz3243XXX","CEP":{"$numberInt":"91340110"},"userStore":{"$oid":"5b171211c90e800360169b6d"},"__v":{"$numberInt":"0"}}

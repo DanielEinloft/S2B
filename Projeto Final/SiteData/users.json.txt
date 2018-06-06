@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5b170a4883bfea1174916a2d"},"games":[],"name":"Daniel EinloftX","email":"daniel@gmail.com","password":"1234561234","address":"rua","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5b1711bec90e800360169b6a"},"games":[],"name":"Rafael Camargo","email":"rafael@gmail.com","password":"123","address":"rua 1","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5b1711d1c90e800360169b6b"},"games":[],"name":"daniel","email":"danieleinloft@gmail.com","password":"123","address":"rua 1","__v":{"$numberInt":"0"}}

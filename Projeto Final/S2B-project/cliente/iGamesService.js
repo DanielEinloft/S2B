@@ -30,6 +30,7 @@ class iGamesServiceClass
             (httpErro) => {throw new HttpError(httpErro)});
     }
 
+
     FindGames(searchString) 
     {
         let buff = {};
@@ -42,6 +43,8 @@ class iGamesServiceClass
             (httpErro) => {throw new HttpError(httpErro)});
     }
 
+
+
     SearchStores(searchString) 
     {
         let buff = {};
@@ -53,6 +56,27 @@ class iGamesServiceClass
             (response ) => { return {stores: response.data}},
             (httpErro) => {throw new HttpError(httpErro)});
     }
+
+    LogIn(email,password) 
+    {
+        let buff = {};
+        buff.email = email;
+        buff.password = password;
+
+        let post = JSON.stringify(buff);
+        let result = this.$http.post('/enter',post);
+        return result.then(
+            (response ) => { return {user: JSON.stringify(response.data)}},
+            (httpErro) => {throw new HttpError(httpErro)});
+    }
+
+
+
+    
+/*
+
+
+
 
 
     CreateUser(userObj) 
@@ -92,18 +116,7 @@ class iGamesServiceClass
     }
 
 
-    LogIn(email,password) 
-    {
-        loginInfo = {};
-        loginInfo.password = password;
-        loginInfo.email = email;
-        let post = JSON.stringify(loginInfo);
-
-        let result = this.$http.post('/enter',post);
-        return result.then(
-            (response ) => { return {userObj: response.data}},
-            (httpErro) => {throw new HttpError(httpErro)});
-    }
+*/
     
     //TODO
     /*

@@ -266,7 +266,7 @@ class Operations
     {
 	"storeName": "MEGAMIDIA INFORMATICA LTDA", 
 	"address": "xyz3243XXX", 
-	"CEP":90810010,
+	"CEP":90810080,
 	"userStore": "5b0e047172285227ffea0e06"}
     */
     static async AddStore(req,res, next)
@@ -287,7 +287,7 @@ class Operations
                             res.status(400).send('3');
                             break; 
                     case 4: // invalid CEP at datapoa database
-                            res.status(400).send('2');
+                            res.status(400).send('4');
                             break;
                     case 11: // CEP ja cadastrado
                             res.status(400).send('11');
@@ -362,6 +362,7 @@ class Operations
     //{"email":"danielStore@gmail.com","password": "1234561234"}
     static async LogIn(req, res, next)
     {
+
         try 
         {
             if (!req.body || !req.body.email || !req.body.password) 
@@ -558,7 +559,21 @@ class Operations
 
 
 
+    static async CreateDB(req,res,next)
+    {
+        try 
+        {
+            let result = await DBService.CreateDataPoaServer();
+            console.log(result);
+            res.status(201).send('ok');  
 
+        } 
+        catch (erro) //A generic error message, given when no more specific message is suitable
+        {
+            res.status(500);
+            next(erro);
+        } 
+    }
 
 
     static async ListStores(req,res, next)

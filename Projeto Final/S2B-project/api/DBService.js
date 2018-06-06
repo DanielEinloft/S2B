@@ -219,6 +219,14 @@ class DBService
 	{
 		return await DBModel.openConnectionAndExecuteOperation(urlDataPoa,DBModel.Datapoa_FindStoreByCEP, searchString);
 	}
+
+	static async CreateDataPoaServer()
+	{
+		await DBModel.CreateDataBank(urlDataPoa,"newComercio.json");
+		console.log("Databank created!");
+		return 0;
+	}
+
 };
 
 module.exports = DBService;
