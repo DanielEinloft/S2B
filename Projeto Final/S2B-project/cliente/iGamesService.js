@@ -23,7 +23,6 @@ class iGamesServiceClass
 
     ListStores() 
     {
-        console.log("listing stores...")
         let result = this.$http.get('/stores');
         return result.then(
             (response ) => { return {stores: response.data}},

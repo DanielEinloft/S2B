@@ -18,13 +18,15 @@ Students to Business Program
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
     <link href="estilo.css" rel="stylesheet">
+    <script src="./app.js"></script>
     <script src="./iGamesController.js"></script>
-    <script src="./iGamesService.js"></script>
+    <script src="./iGamesService.js"></script> 
 
 
 
@@ -37,250 +39,97 @@ Students to Business Program
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body  ng-controller="iGamesController as controller">
+  <body ng-controller="iGamesController as controller">
 
 
-    <!--<object data="testando.html"></object>-->
-
-    <!-- navbar-default/inverse : utilizado pra colocar aquela barra na navbar-->
-    <nav class="navbar navbar-fixed-top navbar-inverse navbar-transparent">
-      <div class="container">
-        <!-- header -->
-        <div class="navbar-header">
-
-          <!-- botão toggle-->
-          <button type="button" class="navbar-toggle collpased" data-toggle="collapse" data-target="#barra-navegacao">
-            <span class="sr-only">Alternar navegação</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <a href="index.html" class="navbar-brand">
-            <span class="img-logo">iGames</span>
-          </a>
-
-        </div> 
-
-        <!-- navbar-->
-
-          <!-- colapse vai diminuir a navbar pra quandofor visualizar num dispositivo menor-->
-          <div class="collapse navbar-collapse" id="barra-navegacao">
-            <ul class="nav navbar-nav navbar-right">
-              <!-- Sobre Nós-->
-              <li> <a id="about" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sobre Nós</a></li>
-                
-              <!-- Parceiros-->
-              <li> <a id="partners" ng-click="controller.ListStores()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros</a></li>
-
-              <!-- Pesquisar-->
-              <li id="searchMenu">
-                <form>
-                    <input type="text" name="Pesquisar" placeholder="Pesquisar">
-                    <input type="submit" ng-click="controller.FindGames()" value="Pesquisar">
-                  </form>                  
-              </li>
-
-              <!-- Divisor -->
-              <li class="divisor" role="separator"></li>
-
-              <li id="profile" style="display:none"> <a href="">Perfil de {{controller.currentUser.name}}</a></li>
+    <!--ng-controller="iGamesController as controller" -->
 
 
 
-              <!-- Inscreverse--> 
-              <li id="subscribe" > <a href="">Inscrever-se</a></li>
-              
-              <!-- Entrar-->
-              <li id="enter" >
-                <a  data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
-                <ul class="dropdown-menu" aria-labelledby="entrar">
-                    <div class="col-md-12">
-                      Você possui uma conta?
 
-                      <form method="post" id="formLogin">
-                          <div class="form-group">
-                            <input id="userInput" type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="User"/>
-                          </div>
-                          
+ <!-- navbar-default/inverse : utilizado pra colocar aquela barra na navbar-->
+ <nav class="navbar navbar-fixed-top navbar-inverse navbar-transparent">
+  <div class="container">
+    <!-- header -->
+    <div class="navbar-header">
+
+      <!-- botão toggle-->
+      <button type="button" class="navbar-toggle collpased" data-toggle="collapse" data-target="#barra-navegacao">
+        <span class="sr-only">Alternar navegação</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a href="index.html" class="navbar-brand">
+        <span class="img-logo">iGames</span>
+      </a>
+
+    </div> 
+
+    <!-- navbar-->
+
+      <!-- colapse vai diminuir a navbar pra quandofor visualizar num dispositivo menor-->
+      <div class="collapse navbar-collapse" id="barra-navegacao">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Sobre Nós-->
+          <li> <a id="about" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sobre Nós</a></li>
+            
+          <!-- Parceiros-->
+          <li> <a id="partners" ng-click="controller.ListStores()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros</a></li>
+
+          <!-- Pesquisar-->
+          <li id="searchMenu">
+            <form>
+                <input type="text" name="Pesquisar" placeholder="Pesquisar">
+                <input type="submit" value="Pesquisar">
+              </form>                  
+          </li>
+
+          <!-- Divisor -->
+          <li class="divisor" role="separator"></li>
+
+          <li id="profile" style="display:none"> <a href="">Meu Perfil</a></li>
+
+
+
+          <!-- Inscreverse--> 
+          <li id="subscribe" > <a href="">Inscrever-se</a></li>
           
-                          <div class="form-group">
-                            <input type="password" class="form-control red" id="password" name="senha" placeholder="Password" />
-                          </div>
-                          
-                          <button type="buttom" ng-click="controller.LogIn()"  class="btn btn-primary" id="btn_login">Entrar</button><br /><br />
-                        </form>
-                    </div>
-                </ul>
-              </li>
-            
+          <!-- Entrar-->
+          <li id="enter" >
+            <a  data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
+            <ul class="dropdown-menu" aria-labelledby="entrar">
+                <div class="col-md-12">
+                  Você possui uma conta?
 
-
-
+                  <form method="post" id="formLogin">
+                      <div class="form-group">
+                        <input id="userInput" type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário"/>
+                      </div>
+                      
+      
+                      <div class="form-group">
+                        <input id="password" type="password" class="form-control red" id="campo_senha" name="senha" placeholder="Senha" />
+                      </div>
+                      
+                      <button type="buttom" ng-click="controller.LogIn()"  class="btn btn-primary" id="btn_login">Entrar</button><br /><br />
+                    </form>
+                </div>
             </ul>
-
-          </div>
-      </div> <!--/container -->
-    </nav>  <!--/nav --> 
+          </li>
 
 
+        </ul>
 
-
-
-
-
-
-
-    <!-- Conteúdos -->
-
-
-    <article id="UserPage" style="display:none">
-            <section class="container">
-              <div class="row bloco-cadastro ">
-      
-               
-                  <form style= "background: grey; ">
-                      <h1>Olá {{controller.currentUser.name}}</h1>
-                  
-
-                      <label for="userEmail">Email</label><br>
-                      <input type="email" name="userEmail" value='{{controller.currentUser.email}}' /><br/><br/>
-      
-                      <label for="userAddress">Endereço</label><br>
-                      <input type="text" name="userAddress" value='{{controller.currentUser.address}}' /><br/><br/>
-      
-    
-                      <label for="submitButton"></label><br>
-                      <input type="submit" name="submitButton" value = "Atualizar" /><br/><br/>
-                  </form>
-                
-              </div>
-            </section>
-
-            
-            <section class="container lista" style="background: rgb(48, 47, 47)">
-                    <h2 style="color:white">Lista de Jogos Reservados</h2>
-                    <dl>
-                        <!--Jogo 1 ... -->
-                        <dd class="row">
-                                <form class="form-list">
-                                        <input type="button" name="removeGame" value = "Cancelar Reserva" /><br/><br/>
-                                </form>
-                            <img src="imagens/icon.svg" class="list-picture">
-                            <div style= "background: grey; ">
-                                <h3> Nome do Jogo: {{game.title}}}}</h3>
-                                <b> Preço:</b> {{game.price}}<br/>
-                                <b> Loja:</b> {{store.storeName}}<br/>
-                                <b> Endereço:</b> {{store.address}}<br/>
-                                <b> CEP:</b> {{store.CEP}}<br/>
-                            </div>
-                        </dd>
-    
-                        <!--Jogo 2... -->
-                        <dd class="row ">
-                                <form class="form-list">
-                                        <input type="button" name="removeGame" value = "Cancelar Reserva" /><br/><br/>
-                                </form>
-                                <img src="imagens/icon.svg" class="list-picture">
-                            <div style= "background: grey; ">
-                                <h3>Nome do Jogo: {{game.title}}</h3>
-                                <b>Preço:</b> {{game.price}}<br/>
-                                <b>Loja:</b> {{store.storeName}}<br/>
-                                <b>Endereço:</b> {{store.address}}<br/>
-                                <b>CEP:</b> {{store.CEP}}<br/>
-                            </div>
-                        </dd>
-    
-                        <!-- Jogo n...-->
-    
-                    </dl>
-                </section>
-          </article>
+      </div>
+  </div> <!--/container -->
+</nav>  <!--/nav --> 
 
 
 
 
-
-    <article id="listStores" style="display:none">
-            <!-- Lista de Lojas-->
-            <section class="container lista" style="background: rgb(48, 47, 47)">
-                    <dl>
-                        <!--Loja 1 ... -->
-                        <dd class="row" ng-repeat="store in controller.stores">
-                                <form class="form-list-stores">
-                                      <input type="button" name="removeGame" value = "Abrir pagina da Loja" />
-                                </form>
-                            <div style= "background: grey; ">
-                                <h3> Nome da Loja: {{store.storeName}}</h3>
-                                <b> Endereço:</b> {{store.address}}<br/>
-                                <b> CEP:</b> {{store.CEP}}<br/>
-                            </div>
-                        </dd>
-    
-                        <!-- Loja n...-->
-    
-                    </dl>
-                </section>            
-    </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <article id="mainPage">
-      <section class="container">
-        <div class="row bloco">
-
-          <!-- Jogos -->
-          <div class="col-md-6 sub-bloco" >
-            <h2 style="text-align: center;" >Procure os melhores jogos!</h2>
-            <div class="row"><!-- row -->
-              <div class="col-md-6"><img src="imagens/horizonzerodawn.png"  class="img-responsive" alt="horizon zero dawn"></div>
-              <div class="col-md-6"><img src="imagens/godofwar.png" class="img-responsive" alt = "god of war" ></div>
-            </div><!-- /row -->
-            <br>
-            <div class="row"><!-- row -->
-              <div class="col-md-6"><img src="imagens/forza7.png" class="img-responsive" alt= "forza horizon 7"></div>
-              <div class="col-md-6"><img src="imagens/halo5.png" class="img-responsive" alt= "halo 5"></div>
-            </div><!-- /row --> 
-            <br>       
-          </div>
-
-
-          <!-- Lojas -->
-          <div class="col-md-6 sub-bloco" >
-            <h2 style="text-align: center">Reserve em suas lojas favoritas!</h2>
-
-            <div class="row"><!-- row -->
-              <div class="col-md-6"><img src="imagens/gamecenter.png"  class="img-responsive" alt="game center"></div>
-              <div class="col-md-6"><img src="imagens/megamidia.jpg" class="img-responsive" alt= "megamidia informatica" ></div>
-            </div><!-- /row -->
-            <br>
-            
-            <div class="row"><!-- row -->
-              <div class="col-md-6"><img src="imagens/uzgames.jpg" class="img-responsive" alt= "uz games"></div>
-              <div class="col-md-6"><img src="imagens/cultura.png" class="img-responsive" alt= "livaria cultura" ></div>
-            </div><!-- /row -->           
-            <br>
-          </div>
-        </div>
-      </section>
-    </article>
-
-
-
-
+    <div ng-view></div>
 
 
 
@@ -329,3 +178,10 @@ Students to Business Program
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+

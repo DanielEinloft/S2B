@@ -1,28 +1,30 @@
 class iGamesControllerClass {
-	constructor(iGamesService)
+	constructor(iGamesService,$location,$rootScope)
 	{
 		this.iGamesService = iGamesService;
 		
 		this.gameList = []; 
-		this.stores = [];
 
 		this.searchString = '';
-		this.currentUser = {};
 		this.password;
 		this.email;
+		this.$location = $location;
+		this.$rootScope = $rootScope;
 	}
+
 
 
 	ListStores()
 	{
+
+        this.$location.path('/listalojas');
 		try
 		{
 			this.iGamesService.ListStores()
 			.then(resultado => 
 			{
-				this.stores = resultado.stores;
-				document.getElementById("mainPage").style.display= "none";
-				document.getElementById("listStores").style.display= "block";
+				this.$rootScope.stores = resultado.stores;
+
 			 })
 			.catch(erro => {
 				this.stores = [];
@@ -40,6 +42,7 @@ class iGamesControllerClass {
 	LogIn()
 	{
 
+
 		try
 		{
 			this.email = document.getElementById("userInput").value;
@@ -48,15 +51,11 @@ class iGamesControllerClass {
 			this.iGamesService.LogIn(this.email,this.password)
 			.then(resultado => 
 			{
-				this.currentUser = JSON.parse(resultado.user);
-				console.log(this.currentUser.name);
+				this.$rootScope.currentUser = JSON.parse(resultado.user);
 				document.getElementById("subscribe").style.display = "none";
 				document.getElementById("enter").style.display= "none";
 				document.getElementById("profile").style.display= "block";
-				document.getElementById("mainPage").style.display= "none";
-				document.getElementById("UserPage").style.display= "block";
-
-
+				this.$location.path('/user');
 			})
 			.catch(erro => {
 				this.stores = [];
@@ -90,9 +89,9 @@ class iGamesControllerClass {
 			this.gameList = [];
 			console.log(`Erro: ${err}`);
 		} 
-    };
-}
+	};
 
+}
 angular
-.module('iGames',[])
-.controller('iGamesController', ['iGamesService',iGamesControllerClass]);
+.module('iGames')
+.controller('iGamesController', ['iGamesService','$location','$rootScope',iGamesControllerClass])
