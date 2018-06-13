@@ -67,13 +67,16 @@ exports.DBModel =
 	
 	//better and cleaner interface to update any information from the databank. DOES NOT VALIDATE ANY INFORMATION, THERE'S NO RULES HERE.
 	FindGameById : function(searchString) {return Game.findOne({_id: searchString}).lean().exec();},
+	FindGameByIdPopulate : function(searchString) {return Game.findOne({_id: searchString}).populate('storeId').lean().exec();},
 	FindStoreById : function(searchString) {return Store.findOne({_id: searchString}).lean().exec();},
 	FindUserById : function(searchString) {return User.findOne({_id: searchString}).lean().exec();},
 	FindUserStoreById : function(searchString) {return UserStore.findOne({_id: searchString}).lean().exec();},
 	FindGamesFromStore: function (searchString){return Game.find().where('storeId').equals(searchString).lean().exec();},	
-	//FindGamesFromUser: function (searchString){return Game.find().where('UserHolding').equals(searchString).lean().exec();},	
-	FindGamesFromUser: function (searchString)	{return User.findOne({_id: searchString}).populate('games').lean().exec();	},	
+	FindGamesFromUserPopulate: function (searchString)	{return User.findOne({_id: searchString}).populate('games').lean().exec();},
+	FindGamesFromUser: function (searchString)	{return User.findOne({_id: searchString}).lean().exec();},	
 	ListStores : function () {return Store.find().lean().exec();},
+
+	FindStoresFromUserStore: function(searchString) {return UserStore.findOne({_id: searchString}).populate('StoreID').lean().exec();},
 
 	FindUserByEmail : function(searchString) {return User.findOne({email: searchString});},
 	FindUserStoreByEmail : function(searchString) {return UserStore.findOne({email: searchString});},

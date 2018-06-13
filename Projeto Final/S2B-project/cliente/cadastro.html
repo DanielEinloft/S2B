@@ -1,0 +1,40 @@
+ 
+    <article>
+      <section class="container">
+        <div class="row bloco-cadastro ">
+
+         
+            <form style= "background: rgba(0, 0, 0, 0.6);  border-radius: 5px;" novalidate>
+                <h1>Cadastro de Usuário</h1>
+            
+                <label for="userName">Nome</label><br>
+                <input type="text" name="userName" ng-model = "newUser.name" required /><br/><br/>
+
+                <label for="password">Passowrd</label><br>
+                <input type="password" ng-model = "newUser.password" name="password" required/><br/><br/>
+
+                <label for="userEmail">Email</label><br>
+                <input type="email" ng-model = "newUser.email" name="userEmail" required /><br/><br/>
+
+                <label for="userAddress">Endereço</label><br>
+                <input type="text" ng-model = "newUser.address" name="userAddress" required/><br/><br/>
+
+
+                <label id="radios" for="userType">Tipo de usuário</label><br>
+                <input type="radio"  ng-model = 'controller.userType' value='0' '/> Usuário comum 
+
+
+                 <input type="radio" ng-model = 'controller.userType' name="userType" value='1' required/>Dono de loja <br/>
+
+
+
+
+                <label for="submitButton"></label><br>
+                <input type="submit" name="submitButton" ng-click="controller.CreateUser(newUser)" value = "Cadastrar!" style="background: black;"/><br/><br/>
+            </form>
+
+    
+
+        </div>
+      </section>
+    </article>

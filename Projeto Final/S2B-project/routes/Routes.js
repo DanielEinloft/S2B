@@ -12,6 +12,7 @@ router.get('/create', Operations.CreateDB); //create DB
 router.get('/stores', Operations.ListStores); //LIST ALL STORES
 router.get('/stores/:_id/games', Operations.ListStoreGames); // list store games
 router.get('/users/:_id/games', Operations.FindUserGames); //get user games
+router.get('/userstore/:_id/stores', Operations.FindUserStoreStores); //get userStore stores
 
 
 //POST operations
@@ -23,7 +24,7 @@ router.post('/stores',jsonParser, Operations.FindStore); //search stores by name
 
 router.post('/users',jsonParser, Operations.CreateUser); // create user
 router.post('/enter',jsonParser, Operations.LogIn); // create user
-router.post('/userstore',jsonParser, Operations.CreateUserStore); // create user/log in 
+router.post('/userstore',jsonParser, Operations.CreateUserStore); //log in 
 router.post('/userstore/stores',jsonParser, Operations.AddStore); // add store
 router.post('/stores/games',jsonParser, Operations.CreateGame); // add game
 

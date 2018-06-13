@@ -122,8 +122,9 @@ class Operations
             }
             else
             {
+                console.log(req.params.id);
                 let result = await DBService.RemoveGame(req.params.id);
-                
+                console.log(`resiçtadç: ${result}`);
                 switch(result)
                 {
                     case 8: // game not found
@@ -149,6 +150,7 @@ class Operations
     //localhost:3000/games/letgo/5b0ddb31f6d2cf1d2d086d41
     static async LetGoGame(req,res, next)
     {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         try 
         {
             if (!req.body.title || !req.body.storeId|| !req.body.price || !req.params || !req.params._userId) 
@@ -197,9 +199,14 @@ class Operations
             }
             else
             {
+
                 let game = new Game(req.body);
+                console.log("!!!!!!!!!!!!!!!!!!!!")
+                console.log(req.params._userId);
+                console.log(game);
                 let result = await DBService.HoldGame(req.params._userId,game);
-                
+
+
                 switch(result)
                 {
                     case 8: // game  not valid
@@ -410,6 +417,7 @@ class Operations
     */
     static async CreateUser(req, res, next)
     {
+        console.log("aqui")
         try 
         {
             if (!req.body || !req.body.name || !req.body.email|| !req.body.password|| !req.body.address) 
@@ -433,7 +441,7 @@ class Operations
                             res.status(400).send('-1');
                             break;
                     case 0: //operation completed! :D
-                            res.status(201).json(result);
+                            res.status(201).json(newUser);
                             break;
                     default: //unexpected error
                             res.status(400).send('-1');
@@ -454,6 +462,7 @@ class Operations
     //localhost:3000/stores/5b0e047172285227ffea0e07/games
     static async ListStoreGames(req,res, next)
     {
+        console.log(req.params)
         try 
         {
             if (!req.params || !req.params._id) 
@@ -462,7 +471,9 @@ class Operations
             }
             else
             {
+
                 let result = await DBService.ListStoreGames(req.params._id);
+                console.log(req.params._id);
                 if(result == 7) //store not found
                     res.status(400).send('7');
     
@@ -515,9 +526,37 @@ class Operations
             else
             {
                 let result = await DBService.FindGamesByName(req.body.title);
-                                console.log(result)
+                //console.log(result)
 
                 res.status(201).json(result);  
+            }
+
+        } 
+        catch (erro) //A generic error message, given when no more specific message is suitable
+        {
+            res.status(500);
+            next(erro);
+        }  
+    }
+
+
+    //localhost:3000/userstore/5b0e047172285227ffea0e06/stores
+    static async FindUserStoreStores(req,res, next)
+    {
+        try 
+        {
+            if (!req.params || !req.params._id) 
+            {
+                res.status(400).send('Dado inválido de requisição');
+            }
+            else
+            {
+                let result = await DBService.ListUserStoreStores(req.params._id);
+                console.log(result);
+                if(result == 12) //user not found
+                    res.status(400).send('12');
+                else
+                    res.status(201).json(result);  
             }
 
         } 
@@ -542,6 +581,7 @@ class Operations
             else
             {
                 let result = await DBService.ListUserGames(req.params._id);
+                console.log(result);
                 if(result == 12) //user not found
                     res.status(400).send('12');
                 else

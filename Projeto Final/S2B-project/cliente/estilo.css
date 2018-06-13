@@ -44,9 +44,9 @@ nav.navbar-transparent
 	margin: 16px 10px;
 }
 
-.searchMenu
+#searchMenu
 {
-	border: 10px solid red;
+	top: 11px;
 }
 
 .userInput
@@ -75,14 +75,15 @@ nav.navbar-transparent
 
 .lista
 {
+	background: rgba(0, 0, 0, 0.6);
 	margin-top: 100px;
 	padding: 25px 0px 25px 0px; 
 }
 .sub-bloco
 {
-	background: grey;
+	background: rgba(155, 154, 154, 0.808);
+	
 }
-
 .image-prop
 {
 	width:  200px;

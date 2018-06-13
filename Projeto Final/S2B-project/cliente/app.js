@@ -23,6 +23,32 @@ angular
         controller: 'iGamesController',
         controllerAs: 'controller'
     })
+    .when('/userstore',
+    {
+        templateUrl: 'usuarioLoja.html',
+        controller: 'iGamesController',
+        controllerAs: 'controller'
+    })
+    .when('/games',{
+        templateUrl: 'procuraJogos.html',
+        controller: 'iGamesController',
+        controllerAs: 'controller'
+    })
+    .when('/cadastro',{
+        templateUrl: 'cadastro.html',
+        controller: 'iGamesController',
+        controllerAs: 'controller'
+    })
+    .when('/creategame',{
+        templateUrl: 'cadastroJogo.html',
+        controller: 'iGamesController',
+        controllerAs: 'controller'
+    })
+    .when('/store/games',{
+        templateUrl: 'jogosLoja.html',
+        controller: 'iGamesController',
+        controllerAs: 'controller'
+    })
 	.otherwise({
 		redirectTo: '/mural'
 	})
@@ -34,6 +60,11 @@ angular
     $root.variavel = true;
     $root.stores = [];
     $root.currentUser = {};
+    $root.currentUserGames = {};
+    $root.searchString = '';
+    $root.gameList = [];
+    $root.userStoreStores = [];
+    $root.currentStore = {};
 
 
     $root.$on('$routeChangeStart', function(e, curr, prev) 

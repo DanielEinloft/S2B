@@ -79,22 +79,22 @@ Students to Business Program
           <li> <a id="partners" ng-click="controller.ListStores()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros</a></li>
 
           <!-- Pesquisar-->
-          <li id="searchMenu">
-            <form>
-                <input type="text" name="Pesquisar" placeholder="Pesquisar">
-                <input type="submit" value="Pesquisar">
-              </form>                  
-          </li>
+              <li id="searchMenu">
+                <form>
+                    <input id= "searchInput" type="text" name="Pesquisar" placeholder="Pesquisar">
+                    <input type="submit" ng-click="controller.FindGames()" value="Pesquisar">
+                  </form>                  
+              </li>
 
           <!-- Divisor -->
           <li class="divisor" role="separator"></li>
 
-          <li id="profile" style="display:none"> <a href="">Meu Perfil</a></li>
+          <li id="profile" style="display:none" ng-click="controller.GoToProfile()"> <a href="">Meu Perfil</a></li>
 
 
 
           <!-- Inscreverse--> 
-          <li id="subscribe" > <a href="">Inscrever-se</a></li>
+          <li id="subscribe" > <a href="#/cadastro">Inscrever-se</a></li>
           
           <!-- Entrar-->
           <li id="enter" >

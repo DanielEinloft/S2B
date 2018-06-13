@@ -99,7 +99,7 @@ class DBService
 		//if store exists,add a game and add to the store list
 		await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.InsertData,newGame);
 		await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.AddGameToStore,newGame);
-		return 0;		
+		return newGame;		
 	}
 
 
@@ -112,7 +112,7 @@ class DBService
 
 		game.situation = 'On Hold';
 		game.UserHolding = userId;
-		game.holdTime = Date.now;
+		//game.holdTime = Date.now;
 		await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.UpdateGame,game);
 		await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.AddGameToUser,game);
 		return 0;
@@ -163,7 +163,23 @@ class DBService
 
 
 	//find
-	static async FindGamesByName(searchString){return await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGameByName,searchString);}
+	static async FindGamesByName(searchString)
+	{
+
+		let result = await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGameByName,searchString);
+		let gamesList =  [];
+		for( let i = 0; i< result.length; i++)
+		{
+			gamesList.push(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGameByIdPopulate, result[i]));
+		}
+
+		console.log(gamesList);
+
+
+		return  gamesList;
+
+
+	}
 	static async FindStoreByName(searchString){return await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindStoreByName,searchString);}
 
 	static async ListStoreGames(storeId)
@@ -174,14 +190,36 @@ class DBService
 
 	}
 
+	//modificar..nao otimizado.
 	static async ListUserGames(userId)
 	{
 		if(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindUserById,userId)== undefined)
 			return 12;
 		let result = await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGamesFromUser, userId);
-		return  result.games;
+		
+		let gamesList =  [];
+		for( let i = 0; i< result.games.length; i++)
+		{
+			gamesList.push(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindGameByIdPopulate, result.games[i]));
+		}
+
+		return  gamesList;
 
 	}
+
+	static async ListUserStoreStores(userId)
+	{
+		if(await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindUserStoreById,userId)== undefined)
+			return 12;
+		let result = await DBModel.openConnectionAndExecuteOperation(urlSite,DBModel.FindStoresFromUserStore, userId);
+		
+		return result;
+	}
+
+
+
+
+
 
 	static async UserLogIn(userEmail,userPassword)
 	{
