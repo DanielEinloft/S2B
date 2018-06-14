@@ -1,0 +1,26 @@
+<!--Author: Daniel Centeno Einloft and Rafael Geiss -->
+
+    <article>
+            <section class="container lista">
+                    <h2 style="color:white">{{scontroller.$rootScope.gameList.length}} Jogos encontrados</h2>
+                    <dl>
+                        <!--Jogo 1 ... -->
+                        <dd class="row" ng-repeat= "game in controller.$rootScope.gameList" >
+
+                                  <form class="form-list">
+                                        <input id="holdbutton" type="button" ng-click="controller.HoldGame($index)" name="holdGame" value = "Reservar Jogo" style="background: black"/><br/><br/>
+                                </form>
+                            <img src="imagens/icon.svg" class="list-picture">
+                            <div style= "background: rgba(200, 200, 200, 0.8); border-radius: 5px">
+                                <h3> Nome do Jogo: {{game.title}}</h3>
+                                <b> Preço:</b>R$ {{game.price}}<br/>
+                                <b> Loja:</b> {{game.storeId.storeName}}<br/>
+                                <b> Endereço:</b> {{game.storeId.address}}<br/>
+                                <b> CEP:</b> {{game.storeId.CEP}}<br/>
+                            </div>
+                        </dd>
+        
+                    </dl>
+                </section>
+
+    </article>

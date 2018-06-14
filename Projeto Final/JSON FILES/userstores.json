@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5b21a37b0f97d61707a16d7d"},"StoreID":[{"$oid":"5b21a703918192179db9a68d"},{"$oid":"5b21d68d77b616092df128a5"}],"name":"Rafael","password":"123","email":"rafael@loja.com","address":"Rua do Rafael","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5b21d75b77b616092df128a9"},"StoreID":[{"$oid":"5b21d78c77b616092df128aa"}],"name":"Daniel Einloft","password":"123","email":"daniel@loja.com","address":"Oswaldo Pereira de Freitas","__v":{"$numberInt":"0"}}

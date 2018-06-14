@@ -1,0 +1,30 @@
+ 
+    <article>
+      <section class="container">
+        <div class="row bloco-cadastro ">
+
+         
+            <form style= "background: rgba(0, 0, 0, 0.6);  border-radius: 5px;" novalidate>
+                <h1>Cadastro de Usuário</h1>
+            
+                <label for="storeName">Nome</label><br>
+                <input type="text" name="storeName" ng-model = "newStore.storeName" required /><br/><br/>
+
+
+                <label for="storeAdress">Endereço</label><br>
+                <input type="text" ng-model = "newStore.address" name="storeAdress" required/><br/><br/>
+
+
+                <label for="storeCEP">CEP</label><br>
+                <input type="text" ng-model = "newStore.CEP" name="storeCEP" required/><br/><br/>
+
+           
+                <label for="submitButton"></label><br>
+                <input type="submit" name="submitButton" ng-click="controller.CreateStore(newStore)" value = "Criar Loja!!" style="background: black;"/><br/><br/>
+            </form>
+
+    
+
+        </div>
+      </section>
+    </article>

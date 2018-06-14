@@ -1,0 +1,17 @@
+<!--Author: Daniel Centeno Einloft and Rafael Geiss -->
+
+    <article id="listStores">
+            <section class="container lista" style="background: rgb(48, 47, 47)">
+                    <dl>
+                        <dd class="row" ng-repeat="store in controller.$rootScope.stores">
+                            <div style= "background: grey; ">
+                                <h3> Nome da Loja: {{store.storeName}}</h3>
+                                <b> Endereço:</b> {{store.address}}<br/>
+                                <b> CEP:</b> {{store.CEP}}<br/>
+                            </div>
+                        </dd>
+        
+                    </dl>
+                </section> 
+    </article> 
+

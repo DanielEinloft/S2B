@@ -1,0 +1,52 @@
+<!--Author: Daniel Centeno Einloft and Rafael Geiss -->
+
+  <article id="UserPage">
+            <section class="container">
+              <div class="row bloco-cadastro ">     
+               
+                  <form style= "background: rgba(0, 0, 0, 0.6); align-items: center; border-radius: 5px; color: #D0D0D0; ">
+                      <h1>Olá {{controller.$rootScope.currentUser.name}}</h1>
+                  
+
+                      <label for="userEmail">Email</label><br>
+                      <input type="email" name="userEmail" value='{{controller.$rootScope.currentUser.email}}' /><br/><br/>
+      
+                      <label for="userAddress">Endereço</label><br>
+                      <input type="text" name="userAddress" value='{{controller.$rootScope.currentUser.address}}' /><br/><br/>
+      
+    
+                      <label for="submitButton"></label><br>
+                      <input type="submit" name="submitButton" value = "Atualizar" style="background: black"/><br/>
+                      <label for="logOff"></label><br>
+                      <input type="submit" name="logOff" ng-click="controller.LogOff()"value = "Log Off" style="background: black"/><br/><br/>
+                  </form>
+
+                
+              </div>
+            </section>
+
+            
+
+
+
+            <section class="container lista">
+                    <h2 style="color:white">{{scontroller.$rootScope.currentUserGames.length}} Jogos na lista de reservas.</h2>
+                    <dl>
+                        <!--Jogo 1 ... -->
+                        <dd class="row" ng-repeat= "game in controller.$rootScope.currentUserGames" >
+                                <form class="form-list">
+                                        <input ng-click="controller.LetGoGame($index)" type="button" name="removeGame" value = "Cancelar Reserva" style="background: black"/><br/><br/>
+                                </form>
+                            <img src="imagens/icon.svg" class="list-picture">
+                            <div style= "background: rgba(200, 200, 200, 0.8); border-radius: 5px">
+                                <h3> Nome do Jogo: {{game.title}}</h3>
+                                <b> Preço:</b>R$ {{game.price}}<br/>
+                                <b> Loja:</b> {{game.storeId.storeName}}<br/>
+                                <b> Endereço:</b> {{game.storeId.address}}<br/>
+                                <b> CEP:</b> {{game.storeId.CEP}}<br/>
+                            </div>
+                        </dd>
+        
+                    </dl>
+                </section>
+</article>

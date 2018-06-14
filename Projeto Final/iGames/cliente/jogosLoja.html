@@ -1,0 +1,28 @@
+<!--Author: Daniel Centeno Einloft and Rafael Geiss -->
+
+    <article>
+            <section class="container lista">
+                    <h2 style="color:white">{{scontroller.$rootScope.gameList}} Jogos encontrados</h2>
+                    <dl>
+                        <!--Jogo 1 ... -->
+                        <dd class="row" ng-repeat= "game in controller.$rootScope.currentUserGames" >
+
+                                  <form class="form-list">
+                                        <input id="deletebutton" type="button" ng-click="controller.DeleteGame($index)" name="deletegame" value = "Deletar Jogo" style="background: black"/><br/><br/>
+                                </form>
+                            <img src="imagens/icon.svg" class="list-picture">
+                            <div style= "background: rgba(200, 200, 200, 0.8); border-radius: 5px">
+                                <h3> Nome do Jogo: {{game.title}}</h3>
+                                <b> Preço:</b>R$ {{game.price}}<br/>
+                                <b> Loja:</b> {{controller.$rootScope.currentStore.storeName}}<br/>
+                                <b> Endereço:</b> {{controller.$rootScope.currentStore.address}}<br/>
+                                <b> CEP:</b> {{controller.$rootScope.currentStore.CEP}}<br/>
+                            </div>
+                        </dd>
+        
+                    </dl>
+                        <input type="submit" name="backtoUser" ng-click="controller.GoTo('/userstore')"value = "Voltar" style="background: black"/><br/><br/>
+
+                </section>
+
+    </article>

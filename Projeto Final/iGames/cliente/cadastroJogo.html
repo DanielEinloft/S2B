@@ -1,0 +1,25 @@
+<!--Author: Daniel Centeno Einloft and Rafael Geiss -->
+        <article>
+            <section class="container">
+              <div class="row bloco-cadastro ">
+      
+               
+                  <form style= "background: rgba(0, 0, 0, 0.6); 
+                  color: #D0D0D0; border-radius: 5px; ">
+                      <h1>Cadastrastrar Jogo</h1>
+                  
+                      <label for="title">Nome do Jogo</label><br>
+                      <input type="text" ng-model = "newGame.title" name="title" required/><br/><br/>
+      
+                      <label for="price">Preço</label><br>
+                      <input  name="text" ng-model = "newGame.price" required/><br/><br/>
+
+                      <label for="submitButton"></label><br>
+                      <input type="submit" name="submitButton" ng-click="controller.CreateGame(newGame)" value = "Cadastrar Jogo" style="background: black;"/><br/><br/>
+                  </form>
+      
+          
+      
+              </div>
+            </section>
+          </article>

@@ -1,0 +1,130 @@
+/*
+Author: Daniel Centeno Einloft and Rafael Camargo Geiss
+Students to Business Program - Web Development 
+*/
+
+/*=========================== layout ============================*/
+html, body, .capa 
+{
+	height: 100%;
+}
+
+body
+{
+	background: url('imagens/siteWallpaper.jpg'); /*composicao de backgrounds*/
+	background-attachment: fixed;/*deixa o background parado. Sem isso ele fica repetindo */
+	overflow-x: hidden; /*remover a barra de navegação na horizontal*/ 
+}
+
+
+.img-logo
+{
+	height: 55px;
+	width: 55px;
+	display: block;
+	background: url('imagens/icon.svg') no-repeat;
+	/*border: 1px solid red;*/
+	background-size:contain; 
+	color: transparent;
+}
+nav.navbar-transparent
+{
+	padding: 15px 0px;
+	background: rgba(0,0,0,0.6);
+	border: none;
+}
+
+.navbar-brand
+{
+	padding: 5px 15px;
+}
+
+.divisor
+{
+	width: 1px;
+	height: 16px;
+	background: white;
+	margin: 16px 10px;
+}
+
+#searchMenu
+{
+	top: 11px;
+}
+
+.userInput
+{
+	position: relative; 
+	left: -10px;
+}
+
+
+
+.bloco
+{
+
+    padding: 25px 0px 25px 0px; 
+	margin-top: 100px;
+	display: table; 
+
+}
+
+.bloco-cadastro
+{
+	margin-top: 100px;
+	padding: 25px 0px 25px 0px; 
+	text-align: center;
+}
+
+.lista
+{
+	background: rgba(0, 0, 0, 0.6);
+	margin-top: 100px;
+	padding: 25px 0px 25px 0px; 
+}
+.sub-bloco
+{
+	background: rgba(155, 154, 154, 0.808);
+	
+}
+.image-prop
+{
+	width:  200px;
+	height: 200px;
+	margin: 10px;
+}
+
+.capa
+{
+	border:1px solid red;
+	display: table; 
+	width: 100%;
+}
+
+/*----- rodape --------*/
+footer
+{
+	background: #000;
+	padding: 50px 0px 20px 0px;
+	position: relative; 
+}
+
+.list-picture
+{
+	float: left;
+	width: 100px; 
+	height: 100px; 
+	margin: 30px 10px 0px 10px;
+}
+
+.form-list
+{
+	float: right;
+	margin: 50px 10px 0px 0px;
+}
+
+.form-list-stores
+{
+	float: right;
+	margin: 25px 10px 0px 0px;
+}

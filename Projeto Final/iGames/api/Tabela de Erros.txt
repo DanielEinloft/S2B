@@ -1,0 +1,14 @@
+-1: Erro inesperado
+0- Operação concluída com sucesso
+1- User Name já existe
+2 - Email já existe
+3- CEP já existe
+4- CEP inválido
+5- Nome da loja inválido
+6- UserStore não existe
+7 - Store nao existe
+8 - Jogo não encontrado
+9- email não existe
+10 - password errado.
+11 - CEP ja existe
+12 - user nao existe
